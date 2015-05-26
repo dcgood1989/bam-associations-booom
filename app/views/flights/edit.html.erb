@@ -1,0 +1,13 @@
+<%= form_for @flight do |f| %>
+  <% if @flight.errors.any? %>
+    <% @flight.errors.full_messages.each do |message|  %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+  <%= f.label :airplane_id, 'Airplane' %>
+  <%= f.collection_select(:airplane_id, Airplane.all, :id, :plane_information) %>
+
+  <%= f.submit %>
+
+<% end %>

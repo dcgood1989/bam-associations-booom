@@ -1,6 +1,10 @@
+List of Flights
 <%= link_to 'Sign out', sign_out_path %>
+<%= link_to 'New Flight', new_flight_path %>
 
 
 <h1>Welcome to the Flight Scheduler</h1>
-
+<% @flights.each do |flight| %>
+<%= link_to "#{flight.airplane.plane_information} to #{ flight.destination.location }", edit_flight_path(flight) %>
 <h2>List of Flights</h2>
+<% end %>
